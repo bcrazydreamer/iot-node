@@ -13,10 +13,10 @@ function actionClick(ob){
             iotLoader.removeClass("center-all");
             iotLoader.css({"display" : "none"});
             if(state === "ON"){
-                $("#iot-on-switch").removeClass("dis-none");;
-                $("#iot-off-switch").addClass("dis-none");
+                $("#iot-on-switch").addClass("dis-none");;
+                $("#iot-off-switch").removeClass("dis-none");
             } else {
-                $("#iot-on-switch").css("display","none");
+                $("#iot-on-switch").removeClass("dis-none");
                 $("#iot-off-switch").addClass("dis-none");
             }
         },
