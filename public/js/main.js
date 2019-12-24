@@ -1,14 +1,14 @@
 var apiPoint = "http://"+window.location.host+"/api";
-function actionClick(data){
+function actionClick(ob){
     var iotLoader = $("#iot-main-loader");
     iotLoader.addClass("center-all");
     iotLoader.css({"display" : "flex"});
     $.ajax({
         url: apiPoint + "/act",
         type: "POST",
-        data: {state : data},
+        data: {state : ob},
         success: function(data, textStatus, jqXHR) {
-            var state = data === true || data === "true" ? "ON" : "OFF";
+            var state = (ob === true || ob === "true") ? "ON" : "OFF";
             $("#iot-state-msg").text("State is "+state);
             iotLoader.removeClass("center-all");
             iotLoader.css({"display" : "none"});
