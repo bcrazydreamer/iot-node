@@ -21,7 +21,8 @@ router.post('/act',(req,res,next)=>{
             data	: "Invalid data"
         });
     }
-    var status = req.body.state === true ? true : false;
+    console.log(req.body);
+    var status = (req.body.state === true || req.body.state === "true") ? true : false;
     gpio.write(7, status, function(err) {
         if (err){
             return res.status(500).json({
