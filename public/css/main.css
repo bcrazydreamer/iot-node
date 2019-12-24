@@ -10,6 +10,10 @@ body{
 .no-padding{
     padding: 0 !important;
 }
+.iot-switch{
+    height: 100px;
+    width: 100px;
+}
 .iot-btn{
     margin: 20px;
     width: 150px;

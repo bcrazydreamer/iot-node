@@ -21,9 +21,16 @@ router.post('/act',(req,res,next)=>{
             data	: "Invalid data"
         });
     }
+    var pin = req.body.pin
+    if(isNaN(pin)){
+        return res.status(500).json({
+            success : false,
+            data	: "Invalid data"
+        });
+    }
     console.log(req.body);
     var status = (req.body.state === true || req.body.state === "true") ? true : false;
-    gpio.write(7, status, function(err) {
+    gpio.write(pin, status, function(err) {
         if (err){
             return res.status(500).json({
                 success : false,
@@ -33,6 +40,29 @@ router.post('/act',(req,res,next)=>{
         res.status(200).json({
             success : true,
             data	: "On"
+        });
+    });
+});
+
+router.post('/read',(req,res,next)=>{
+    var pin = req.body.pin
+    if(isNaN(pin)){
+        return res.status(500).json({
+            success : false,
+            data	: "Invalid data"
+        });
+    }
+    pin = Number(pin);
+    gpio.read(pin, function(err,resp) {
+        if (err){
+            return res.status(500).json({
+                success : false,
+                data	: err
+            });
+        };
+        res.status(200).json({
+            success : true,
+            data	: resp
         });
     });
 });
