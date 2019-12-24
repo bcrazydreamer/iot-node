@@ -28,6 +28,7 @@ body{
     padding: 50px;
     font-size: 30px;
     font-weight: bold;
+    color: #fff;
 }
 .center-all{
     display:flex !important;
