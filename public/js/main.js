@@ -14,7 +14,7 @@ function actionClick(ob){
             iotLoader.removeClass("center-all");
             iotLoader.css({"display" : "none"});
             if(state === "ON"){
-                $("#iot-on-switch").addClass("dis-none");;
+                $("#iot-on-switch").addClass("dis-none");
                 $("#iot-off-switch").removeClass("dis-none");
             } else {
                 $("#iot-on-switch").removeClass("dis-none");
@@ -35,18 +35,14 @@ function checkState(){
         data: {pin : pin},
         success: function(data, textStatus, jqXHR) {
             console.log(data);
-            $("#iot-switch-ctnr").removeClass("dis-none")
-            // var state = (ob === true || ob === "true") ? "ON" : "OFF";
-            // $("#iot-state-msg").text("State is "+state);
-            // iotLoader.removeClass("center-all");
-            // iotLoader.css({"display" : "none"});
-            // if(state === "ON"){
-            //     $("#iot-on-switch").addClass("dis-none");;
-            //     $("#iot-off-switch").removeClass("dis-none");
-            // } else {
-            //     $("#iot-on-switch").removeClass("dis-none");
-            //     $("#iot-off-switch").addClass("dis-none");
-            // }
+            $("#iot-switch-ctnr").removeClass("dis-none");
+            if(data && data.data === true){
+                $("#iot-on-switch").addClass("dis-none");
+                $("#iot-off-switch").removeClass("dis-none");
+            } else {
+                $("#iot-on-switch").removeClass("dis-none");
+                $("#iot-off-switch").addClass("dis-none");
+            }
         },
         error: function(jqXHR, textStatus, errorThrown) {
             $("#iot-state-msg").text("Something went wrong try after some time");
