@@ -1,10 +1,11 @@
 const gpio = require('rpi-gpio');
+const chalk = require('chalk');
 
 var pin = 21;
 var pin2 = 20;
 
 gpio.setMode(gpio.MODE_BCM);
-gpio.setup(pin, gpio.DIR_IN);
+gpio.setup(pin, gpio.DIR_IN,gpio.EDGE_FALLING);
 gpio.setup(pin2, gpio.DIR_OUT);
 
 function output(status) {
@@ -15,13 +16,14 @@ function output(status) {
         };
         var msg;
         if(status === false){
-        		msg = "Moisture detected";
+        		msg = chalk.red("Moisture detected");
         } else {
-        	msg = "Moisture not detected";
+        	msg = chalk.green("Moisture not detected");
         }
         console.log(msg);
 	});
 }
+
 function test() {
 	  gpio.read(pin, (err, data) => {
 		   if (err) {
@@ -31,4 +33,6 @@ function test() {
 	  });
 }
 
-setInterval(function () { test() }, 1000);
+gpio.on('change', function(channel, value) {
+ 	return test()
+})
