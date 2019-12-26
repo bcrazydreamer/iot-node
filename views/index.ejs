@@ -1,3 +1,41 @@
-<h1>
-    <center>Welcome to Resperri Pi 3</center>
-</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>IOT</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="/css/main.css"/>
+    <script src="/js/main.js"></script>
+</head>
+<body>
+
+    <div class="center-all main-iot-ttl">Eckovation IOT</div>
+    <div class="row main-ctnr no-margin dis-none" id="iot-switch-ctnr">
+        <div class="col-12 center-all">
+            <img src="/img/off.svg" class="iot-switch" onclick="actionClick(true)" id="iot-on-switch"/>
+            <img src="/img/on.svg" class="iot-switch dis-none" onclick="actionClick(false)" id="iot-off-switch"/>
+
+            <!-- <a class="btn btn-success iot-btn" style="background-color: #673AB7;" onclick="actionClick(true)">On</a>
+            <a class="btn btn-danger iot-btn" style="background-color: #c62828;" onclick="actionClick(false)">Off</a> -->
+        </div>
+    </div>
+
+    <div class="row main-ctnr no-margin">
+        <div class="col-12 center-all">
+            <span class="iot-state-msg" id="iot-state-msg"></span>
+        </div>
+    </div>
+
+    <div class="iot-loader center-all no-margin" id="iot-main-loader">
+        <div class="loader loader-1">
+            <div class="loader-outter"></div>
+            <div class="loader-inner"></div>
+        </div>
+    </div>
+
+
+</body>
+</html>
